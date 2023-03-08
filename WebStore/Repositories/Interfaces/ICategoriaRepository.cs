@@ -1,9 +1,8 @@
 ﻿using WebStore.Models;
 
-namespace WebStore.Repositories.Interfaces
+namespace WebStore.Repositories.Interfaces;
+
+public interface ICategoriaRepository
 {
-    public interface ICategoriaRepository
-    {
-        IEnumerable<Categoria> Categorias { get; }
-    }
+    IEnumerable<Categoria> Categorias { get; }
 }
