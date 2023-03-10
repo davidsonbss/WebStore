@@ -20,9 +20,13 @@ namespace WebStore
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<ICategoriaRepository, CategoriaRepository>();
             services.AddTransient<IProdutoRepository, ProdutoRepositoty>();
-
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddControllersWithViews();
+            
+            services.AddMemoryCache();
+            services.AddSession();
+
             
         }
 
@@ -43,6 +47,8 @@ namespace WebStore
             app.UseStaticFiles();
 
             app.UseRouting();
+            
+            app.UseSession();
 
             app.UseAuthorization();
 
@@ -55,3 +61,4 @@ namespace WebStore
         }
     }
 }
+ 
