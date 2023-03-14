@@ -1,3 +1,15 @@
-﻿<h2>Web Store</h2>
+﻿@model HomeViewModel
+
+<h2>Web Store</h2>
 
 <partial name="_Carousel"/>
+
+<h2>Destaques da semana</h2>
+
+<div class="row">
+    @foreach (var produto in Model.ProdutosDestaques)
+    {
+        <partial name="_produtosResumo" for="@produto"/>
+    }
+</div>
+
